@@ -37,8 +37,7 @@ var i2, j2 int = 1, 2
 * g := 0.867 + 0.5i // complex128
 * */
 
-/*
-* constantes
+/** constantes
 *
 * Las constantes se declarando como variables, pero con la palabra clave const.
 *
@@ -47,6 +46,29 @@ var i2, j2 int = 1, 2
 * Las constantes no se pueden declarar usando la sintaxis :=
 * */
 const Pi = 3.14
+
+/*
+* Constantes numéricas
+*
+* Las costantes numéricas son valores de alta precisión.
+*
+* Una constante sin tipo toma el tipo que necesita su contexto.
+*
+*
+* */
+const (
+	// Crear un número enorme desplazando 1 bit a la izquierda 100 lugares.
+	// Es decir, el número binario que es 1 seguido de 100 ceros.
+	Big = 1 << 100
+	// Moverlo a la derecha de nuevo 99 lugares, por lo que terminamos con: 1<<1 o 2
+	Small = Big >> 99
+)
+
+func needInt(x int) int { return x*10 + 1 }
+
+func needFloat(x float64) float64 {
+	return x * 0.1
+}
 
 func main() {
 	var i int
@@ -81,4 +103,9 @@ func main() {
 	fmt.Printf("%v %v %v %q\n", i4, f, b, s)
 
 	fmt.Println("Constante:", Pi)
+
+	fmt.Println(needInt(Small))
+	// fmt.Println(needInt(Big))
+	fmt.Println(needFloat(Small))
+	fmt.Println(needFloat(Big))
 }
