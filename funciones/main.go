@@ -49,6 +49,7 @@ func split(sum int) (x, y int) {
 
 func main() {
 	fmt.Println(add(42, 13))
+	fmt.Println(add2(20, 10))
 
 	a, b := swap("hola", "mundo")
 	fmt.Println(a, b)
