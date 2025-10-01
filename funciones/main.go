@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+)
 
 /*
 * Una función puede tener  cero o más argumentos.
@@ -55,4 +58,22 @@ func main() {
 	fmt.Println(a, b)
 
 	fmt.Println(split(17))
+
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(5, 12))
+	fmt.Println(calcular((hypot)))
+	fmt.Println(calcular(math.Pow))
+}
+
+/*
+* Valores de función
+*
+* Las funciones son valores también. Pueden ser pasadas como argumentos a funciones y retornarlas desde funciones.
+*
+* Los valores de función pueden ser usados como argumentos de funciones y valores de retorno.
+* */
+func calcular(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
 }
